@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+{% if messages %}
+{% for message in messages %}
+<div style="color: #270;background-color: #DFF2BF; padding: 0.5em; text-align: center">
+    {{ message}}
+</div>
+{% endfor %}
+{% endif %}
+
+
+<div class="page-wrapper mdc-toolbar-fixed-adjust">
+    <main class="content-wrapper">
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-8">
+                    <div class="mdc-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="card-title mb-2 mb-sm-0">post title</h4>
+                            <div class="d-flex justtify-content-between align-items-center">
+                                <p class="d-none d-sm-block text-muted tx-12 mb-0 mr-2">post date</p>
+                                <i class="material-icons options-icon">more_vert</i>
+                            </div>
+                        </div>
+                        <div class="d-block d-sm-flex justify-content-between align-items-center">
+                            <h6 class="card-sub-title mb-0">caption: Sales performance revenue based by country</h6>
+                            <div class="mdc-tab-wrapper revenue-tab mdc-tab--secondary">
+                                <div class="mdc-tab-bar" role="tablist">
+                                    <div class="mdc-tab-scroller">
+                                        <div class="mdc-tab-scroller__scroll-area mdc-tab-scroller__scroll-area--scroll"
+                                            style="margin-bottom: 0px;">
+                                            <div class="mdc-tab-scroller__scroll-content">
+                                                
+                                                
+                                                
+                                                
+                                                <button class="mdc-tab mdc-tab" role="tab" aria-selected="true"
+                                                    tabindex="0" id="mdc-tab-5">
+                                                    <span class="mdc-tab__content">
+                                                        <span class="mdc-tab__text-label">option</span>
+                                                    </span>
+                                                    <span class="mdc-tab-indicator mdc-tab-indicator">
+                                                        <span
+                                                            class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                                                    </span>
+                                                    <span class="mdc-tab__ripple mdc-ripple-upgraded"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content content--active">
+                                </div>
+                                <div class="content">
+                                </div>
+                                <div class="content">
+                                </div>
+                                <div class="content">
+                                </div>
+                                <div class="content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-container mt-4">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <canvas id="revenue-chart" height="260" style="display: block; width: 616px; height: 260px;"
+                                width="616" class="chartjs-render-monitor"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet">
+                    <div class="mdc-card">
+                        <div class="d-flex d-lg-block d-xl-flex justify-content-between">
+                            <div style="border: solid #dddddd; border-radius:5px;padding: 0.2em;">
+                                <img src="{{ profile.image.url }}" height="150rem" width="150rem">
+                            </div>
+                            <div id="sales-legend" class="d-flex flex-wrap">
+                                <div>
+                                    <div class="d-flex align-items-center"><span class="bullet-rounded"
+                                            style="border-color: #00b67a "></span>
+                                        <p class="tx-12 text-muted mb-0 ml-2">{{profile.first_name}} {{profile.last_name}}</p>
+                                    </div>
+                                    <div class="d-flex align-items-center"><span class="bullet-rounded"
+                                            style="border-color: #08bdde "></span>
+                                        <p class="tx-12 text-muted mb-0 ml-2">{{user.username}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <table class="table dashboard-table">
+                                <tbody>
+                                  <tr>
+                                    <td>
+                                      <span class="flag-icon-container"><i class="flag-icon flag-icon-dz mr-2"></i></span>algeria</td>
+                                    <td></td>
+                                    <td class=" font-weight-medium"> Jijel</td>
+                                  </tr>
+                                  <tr>
+                                    <td><b>My Info:</b></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            <div class="text-muted tx-14">
+                              <b>Email: </b>{{ user.email }}
+                              <br><br>
+                              <b>Phone: </b>{{ profile.phone}}
+                              <br><br>
+                              <b>Birthday: </b>{{ profile.date_of_birth}}-{{ profile.gender }}
+                              <br><br>
+                              <b>Joined: </b>{{ profile.date_joined}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- partial:partials/_footer.html -->
+    <footer>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                    <span class="text-center text-sm-left d-block d-sm-inline-block tx-14">Copyright © <a
+                            href="https://www.bootstrapdash.com/" target="_blank">bootstrapdash.com </a>2020</span>
+                </div>
+                <div
+                    class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop d-flex justify-content-end">
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center tx-14">Free <a
+                            href="https://www.bootstrapdash.com/material-design-dashboard/" target="_blank"> material
+                            admin </a> dashboards from Bootstrapdash.com</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- partial -->
+</div>
+
+{% endblock content %}
