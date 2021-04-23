@@ -31,10 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'channels',
     'core',
     'users',
-    'chat',
     'crispy_forms',
     'widget_tweaks',
     'django.contrib.admin',
@@ -142,4 +140,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
-ASGI_APPLICATION = 'project.asgi.application'
+
